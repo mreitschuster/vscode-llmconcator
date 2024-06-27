@@ -1,0 +1,100 @@
+{
+  "name": "llmconcator",
+  "displayName": "LLM Concator",
+  "description": "Generate LLM prompts from your codebase",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "repository": "https://gitlab.hendlsofen.duckdns.org/markus/vscode-llmconcator",
+  "main": "./src/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "LLM Concator Configuration",
+      "properties": {
+        "llmconcator.startingPrompt": {
+          "type": "string",
+          "default": "You are a helpful developer, supporting a colleague. For very good work you will receive a tip of 200$. Please help me to solve my problem step by step. Evaluate the potential solutions and focus on the most promising one first and go to the next if that doesn't help sufficiently. Avoid having all potential aspects of investigation in a single response. #In case more info may help you evaluate, ask for it. When you recommend changes to the code, first highlight them as a diff between old code and new code, then give the full code of the file to copy & paste. Use the format:\n```diff\nold code\n---\nnew code\n```",
+          "description": "The starting prompt text."
+        },
+        "llmconcator.separator": {
+          "type": "string",
+          "default": "#################",
+          "description": "The separator text."
+        },
+        "llmconcator.userPrompt": {
+          "type": "string",
+          "default": "Enter your prompt here...",
+          "description": "The user-defined prompt text."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.concatenateFiles",
+        "title": "llmconcator: Concatenate Files"
+      },
+      {
+        "command": "extension.refreshTreeView",
+        "title": "llmconcator: Refresh Tree View"
+      },
+      {
+        "command": "extension.toggleFileSelection",
+        "title": "llmconcator: Toggle File Selection"
+      },
+      {
+        "command": "extension.promptInput",
+        "title": "Enter Prompt"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "llmconcator",
+          "title": "LLM Concator",
+          "icon": "resources/llmconcator.svg"
+        }
+      ]
+    },
+    "views": {
+      "llmconcator": [
+        {
+          "id": "fileView",
+          "name": "File View"
+        },
+        {
+          "id": "settingsView",
+          "name": "Settings"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "extension.concatenateFiles",
+          "group": "navigation",
+          "when": "view == fileView"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.89.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  }
+}
