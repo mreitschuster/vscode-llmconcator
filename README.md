@@ -48,11 +48,3 @@ This extension does not add any custom settings at this time.
 ## License
 
 MIT License
-
-## package the code
-```
-sudo npm install -g vsce
-vsce package
-```
-then in vscode, go to extensions, click the three dots, select install from vsix and select the package.
-Now a new element on your left sidebar shold appear.
