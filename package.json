@@ -2,7 +2,7 @@
   "name": "llmconcator",
   "displayName": "LLM Concator",
   "description": "Generate LLM prompts from your codebase",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "MarkusReitschuster",
   "engines": {
     "vscode": "^1.89.0"

@@ -28,8 +28,9 @@ async function activate(context) {
       let concatenatedText = `${startingPrompt}\n${separator}\n`;
 
       for (const filePath of selectedFiles) {
+        const relativePath = vscode.workspace.asRelativePath(filePath); // Get the relative path from the workspace root
         const content = fs.readFileSync(filePath, 'utf-8');
-        concatenatedText += `path/${path.basename(filePath)}:\n{\n${content}\n}\n${separator}\n`;
+        concatenatedText += `${relativePath}:\n{\n${content}\n}\n${separator}\n`;
       }
 
       concatenatedText += `${userPrompt}\n${separator}`;

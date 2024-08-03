@@ -40,6 +40,9 @@ This extension does not add any custom settings at this time.
 - No known issues. Please report any issues on the GitHub repository.
 
 ## Release Notes
+### 0.0.2
+
+- fixed path to files being incorrectly shown in prompt
 
 ### 0.0.1
 
